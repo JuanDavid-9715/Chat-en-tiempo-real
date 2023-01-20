@@ -20,6 +20,11 @@ const UserScheme = new mongoose.Schema(
             type: String,
             default: "./client/src/assets/img/perfil-del-usuario.png",
         },
+        line: {
+            type: bool,
+            require: true,
+            unique: false,
+        },
         contacts: [ContactSchema],
     },
     {
