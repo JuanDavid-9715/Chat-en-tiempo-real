@@ -7,7 +7,7 @@ const dbConnect = () => {
 
     mongoose.connect(DB_URI, (err) => {
         if (!err) {
-            console.log("********** CONEXIÓN CORRECTA **********");
+            console.log("---------- CONEXIÓN CORRECTA ----------");
         } else {
             console.log("********** ERROR DE CONEXIÓN **********");
             console.log(err);

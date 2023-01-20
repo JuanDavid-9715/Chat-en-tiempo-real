@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const { ContactSchema } = require("./contact");
 
-const UsersScheme = new mongoose.Schema(
+const UserScheme = new mongoose.Schema(
     {
         name: {
             type: String,
@@ -19,9 +20,7 @@ const UsersScheme = new mongoose.Schema(
             type: String,
             default: "./client/src/assets/img/perfil-del-usuario.png",
         },
-        contact: {
-            type: [mongoose.Types.ObjectId],
-        },
+        contacts: [ContactSchema],
     },
     {
         timestamps: true,
@@ -29,6 +28,4 @@ const UsersScheme = new mongoose.Schema(
     }
 );
 
-const Users = new mongoose.model("users", UsersScheme);
-
-module.exports = { Users };
+module.exports = mongoose.model("Users", UserScheme, "users");

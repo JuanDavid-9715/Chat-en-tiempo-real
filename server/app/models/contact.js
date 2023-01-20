@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ContactsSchema = new mongoose.Schema(
+const ContactSchema = new mongoose.Schema(
     {
         name: {
             type: String,
@@ -11,8 +11,14 @@ const ContactsSchema = new mongoose.Schema(
             require: true,
             unique: true,
         },
+        savedContact: {
+            type: Boolean,
+            require: true,
+            default: false,
+        },
         chat: {
             type: mongoose.Types.ObjectId,
+            require: true,
         },
     },
     {
@@ -21,6 +27,4 @@ const ContactsSchema = new mongoose.Schema(
     }
 );
 
-const Contacts = new mongoose.model("contacts", ContactsSchema);
-
-module.exports = { Contacts };
+module.exports = { ContactSchema };
