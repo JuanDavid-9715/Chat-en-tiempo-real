@@ -21,7 +21,7 @@ const UserScheme = new mongoose.Schema(
             default: "./client/src/assets/img/perfil-del-usuario.png",
         },
         line: {
-            type: bool,
+            type: Boolean,
             require: true,
             unique: false,
         },
