@@ -22,7 +22,6 @@ const updateContact = async (user, userContact, chat, save) => {
         console.log("chat created ---> ", savedContact);
 
         return {
-            contact: savedContact,
             status: "201",
             message: "Contact created",
         };
