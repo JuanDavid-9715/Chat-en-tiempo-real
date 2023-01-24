@@ -3,31 +3,43 @@ const Chat = require("../models/chat");
 // add
 const addChat = async (data) => {
     try {
-        const doc = await Chat.findOne({
-            tellUser: data.tellUser,
-            tellContact: data.tellContact,
+        // Buscar un chat existente con los números de teléfono especificados
+        const existingChat = await Chat.findOne({
+            tellUser: data.tell,
+            tellContact: data.contact.tell,
         });
 
-        console.log(doc);
-        if (!doc) {
-            let chat = new Chat({
-                tellUser: data.tellUser,
-                tellContact: data.tellContact,
+        // Si el chat buscado no existe, crearlo y guardarlo en la base de datos
+        if (!existingChat) {
+            let newChat = new Chat({
+                tellUser: data.tell,
+                tellContact: data.contact.tell,
             });
 
-            await chat.save((err) => {
-                if (!err) {
-                    console.log("--- Se guardo correctamente ---");
-                } else {
-                    console.log("*** error ***");
-                    console.log(err);
-                }
-            });
+            const savedChat = await newChat.save();
+
+            console.log("********** User created **********");
+            console.log("Chat created ---> ", savedChat);
+
+            return {
+                chat: savedChat,
+                status: "201",
+                message: "Chat created",
+            };
         } else {
-            console.log("*** ERROR : El documento ya existe ***");
+            return {
+                status: "400",
+                message: "The chat already existes",
+            };
         }
-    } catch (err) {
-        console.log(err);
+    } catch (error) {
+        console.log("********** ERROR **********");
+        console.log(error);
+
+        return {
+            status: "500",
+            message: "Something went wrong, please try again",
+        };
     }
 };
 
@@ -46,12 +58,24 @@ const searchChatId = async (data) => {
 
 const searchChatTell = async (data) => {
     try {
-        const post = await Chat.findOne({
-            tellUser: data.tellUser,
-            tellContact: data.tellContact,
-        });
+        const chat = await Chat.findOne({
+            tellUser: data.tell,
+            tellContact: data.contact.tell,
+        }).sort({ createdAt: "desc" });
 
-        console.log("resultado ---> ", post);
+        if (chat) {
+            console.log("Chat found:", chat);
+            return {
+                status: "OK",
+                message: "Chat found",
+                chat: chat,
+            };
+        } else {
+            return {
+                status: "error",
+                message: "Chat not found",
+            };
+        }
     } catch (err) {
         console.log(err);
     }

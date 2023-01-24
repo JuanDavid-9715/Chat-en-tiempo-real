@@ -1,52 +1,64 @@
 const User = require("../models/user");
 
 // add
-const updateContact = async (data) => {
+const updateContact = async (user, userContact, chat, save) => {
     try {
-        const doc = await User.findOne({ contacts: { tell: data.tell } });
-
-        console.log(doc);
-        if (!doc) {
-            await User.updateOne(
-                { tell: data.tell },
-                {
-                    $push: {
-                        contacts: {
-                            name: data.contacts.name,
-                            tell: data.contacts.tell,
-                            savedContact: data.contacts.savedContact,
-                            chat: data.contacts.chat,
-                        },
+        // busca el usuario existente con el numero de teléfono especificado, crea y guarda un la basa de datos un contacto
+        const savedContact = await User.updateOne(
+            { tell: user.tell },
+            {
+                $push: {
+                    contacts: {
+                        name: userContact.name,
+                        tell: userContact.tell,
+                        savedContact: save,
+                        chat: chat._id,
                     },
                 },
-                (err) => {
-                    if (!err) {
-                        console.log("--- Se guardo correctamente ---");
-                    } else {
-                        console.log("*** error ***");
-                        console.log(err);
-                    }
-                }
-            );
-        } else {
-            console.log("*** ERROR : El documento ya existe ***");
-        }
-    } catch (err) {
-        console.log(err);
+            }
+        );
+
+        console.log("********** Contact created **********");
+        console.log("chat created ---> ", savedContact);
+
+        return {
+            contact: savedContact,
+            status: "201",
+            message: "Contact created",
+        };
+    } catch (error) {
+        console.log("********** ERROR **********");
+        console.log(error);
+
+        return {
+            status: "500",
+            message: "Something went wrong, please try again",
+        };
     }
 };
 
 //search
 const searchContactAll = async (data) => {
     try {
-        const post = await User.find({ tell: data.tell }, { contacts: 1 });
+        // Buscar todos los contactos existente del usuario especificado
+        const savedContacts = await User.find(
+            { tell: data.tell },
+            { contacts: 1 }
+        );
 
-        /* console.log("resultado ---> ", post); */
-        console.log("resultado ---> ", JSON.stringify(post));
-    } catch (err) {
-        console.log(err);
+        return {
+            status: "200",
+            message: "Contacts found",
+        };
+    } catch (error) {
+        console.log("********** ERROR **********");
+        console.log(error);
+
+        return {
+            status: "500",
+            message: "Something went wrong, please try again",
+        };
     }
-    
 };
 
 module.exports = { updateContact, searchContactAll };
