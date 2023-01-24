@@ -38,15 +38,44 @@ const updateContact = async (user, userContact, chat, save) => {
 };
 
 //search
+const searchContact = async (data) => {
+    try {
+        // Buscar todos los contactos existente del usuario especificado
+        const savedContacts = await User.findOne(
+            { tell: data.tell, "contacts.tell": data.contact.tell },
+            {}
+        );
+
+        console.log("contact found ---> ", savedContacts);
+
+        return {
+            user: savedContacts,
+            status: "200",
+            message: "Contact found",
+        };
+    } catch (error) {
+        console.log("********** ERROR **********");
+        console.log(error);
+
+        return {
+            status: "500",
+            message: "Something went wrong, please try again",
+        };
+    }
+};
+
 const searchContactAll = async (data) => {
     try {
         // Buscar todos los contactos existente del usuario especificado
-        const savedContacts = await User.find(
-            { tell: data.tell },
+        const savedContacts = await User.findOne(
+            { tell: data },
             { contacts: 1 }
         );
 
+        /* console.log("contact found ---> ", savedContacts); */
+
         return {
+            user: savedContacts,
             status: "200",
             message: "Contacts found",
         };
@@ -61,4 +90,4 @@ const searchContactAll = async (data) => {
     }
 };
 
-module.exports = { updateContact, searchContactAll };
+module.exports = { updateContact, searchContact, searchContactAll };

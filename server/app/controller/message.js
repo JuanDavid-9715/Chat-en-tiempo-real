@@ -1,9 +1,10 @@
 const Chat = require("../models/chat");
 
-const updateMessage = async (data) => {
+const updateMessage = async (data, chat) => {
     try {
-        await Chat.updateOne(
-            { _id: data._id.$oid },
+        // busca el chat existente con el id especificado, crea y guarda un la basa de datos un mensaje
+        const savedMessage = await Chat.updateOne(
+            { _id: chat },
             {
                 $push: {
                     messages: {
@@ -11,18 +12,23 @@ const updateMessage = async (data) => {
                         message: data.message,
                     },
                 },
-            },
-            (err) => {
-                if (!err) {
-                    console.log("--- Se guardo correctamente ---");
-                } else {
-                    console.log("*** error ***");
-                    console.log(err);
-                }
             }
         );
+
+        console.log("********** Message created **********");
+
+        return {
+            status: "201",
+            message: "message created",
+        };
     } catch (err) {
-        console.log(err);
+        console.log("********** ERROR **********");
+        console.log(error);
+
+        return {
+            status: "500",
+            message: "Something went wrong, please try again",
+        };
     }
 };
 

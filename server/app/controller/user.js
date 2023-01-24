@@ -78,7 +78,7 @@ const updateLineUser = async (data, line) => {
 const searchUserTell = async (data) => {
     try {
         // Buscar un usuario existente con el número de teléfono especificados
-        const saveUser = await User.findOne({
+        const saveUser = await User.find({
             tell: data.tell,
         });
 

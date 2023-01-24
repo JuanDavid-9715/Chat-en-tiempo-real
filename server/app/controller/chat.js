@@ -44,27 +44,12 @@ const addChat = async (data) => {
 };
 
 // search
-const searchChatId = async (data) => {
+const searchChatId = async (id) => {
     try {
-        const post = await Chat.findOne({
-            _id: data._id.$oid,
-        });
-
-        console.log("resultado ---> ", post);
-    } catch (err) {
-        console.log(err);
-    }
-};
-
-const searchChatTell = async (data) => {
-    try {
-        const chat = await Chat.findOne({
-            tellUser: data.tell,
-            tellContact: data.contact.tell,
-        }).sort({ createdAt: "desc" });
+        const chat = await Chat.findById(id);
 
         if (chat) {
-            console.log("Chat found:", chat);
+            /* console.log("Chat found:", chat); */
             return {
                 status: "OK",
                 message: "Chat found",
@@ -76,9 +61,35 @@ const searchChatTell = async (data) => {
                 message: "Chat not found",
             };
         }
-    } catch (err) {
-        console.log(err);
+    } catch (error) {
+        console.log("********** ERROR **********");
+        console.log(error);
+
+        return {
+            status: "500",
+            message: "Something went wrong, please try again",
+        };
     }
 };
 
-module.exports = { addChat, searchChatId, searchChatTell };
+// delete
+const deleteChat = async (data) => {
+    try {
+        const savedChat = await Chat.deleteOne({ _id: data });
+
+        return {
+            status: "400",
+            message: "The chat already existes",
+        };
+    } catch (error) {
+        console.log("********** ERROR **********");
+        console.log(error);
+
+        return {
+            status: "500",
+            message: "Something went wrong, please try again",
+        };
+    }
+};
+
+module.exports = { addChat, searchChatId, deleteChat };
