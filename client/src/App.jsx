@@ -1,17 +1,16 @@
-import { useState, useEffect } from "react";
-import socket from "./services/Socket";
-
-import "./App.scss";
+import PruebaSocket from "./components/Prueba/PruebaSocket";
 
 function App() {
-    useEffect(() => {
-        socket;
-    });
-
     return (
-        <div>
-            <div></div>
-        </div>
+        <main className="main">
+            <div className="user"></div>
+            <div className="contact"></div>
+            <div className="header"></div>
+            <div className="message"></div>
+            <div className="chat"></div>
+            <div className="signin"></div>
+            {/* <PruebaSocket /> */}
+        </main>
     );
 }
 

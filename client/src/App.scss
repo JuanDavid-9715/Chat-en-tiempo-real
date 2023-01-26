@@ -1,0 +1,35 @@
+@use "./assets/styles/abstracts/variables" as c;
+@use "./assets/styles/abstracts/placeholders" as p;
+
+.main {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.user {
+    background-color: c.$jet;
+    border-right: 1px solid c.$davys-grey;
+}
+.contact {
+    background-color: c.$eerie-black;
+    border-right: 1px solid c.$davys-grey;
+}
+.header {
+    background-color: c.$jet;
+}
+.message {
+    background-color: c.$jet;
+}
+.chat {
+    background-color: c.$eerie-black;
+}
+
+.signin {
+    background-color: c.$black;
+    width: p.$signinWidth;
+    height: p.$signinHeight;
+    position: absolute;
+    left: calc((100% - p.$signinWidth) / 2);
+    top: calc((100% - p.$signinHeight) / 2);
+}

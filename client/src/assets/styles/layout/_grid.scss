@@ -1,0 +1,30 @@
+@use "../abstracts/mixins" as m;
+
+.main {
+    @include m.grid(
+        minmax(14rem, 30%) 1fr,
+        4rem 1fr 4rem,
+        "user header" "Contact chat" "Contact message",
+        0rem,
+        stretch,
+        stretch,
+        stretch,
+        stretch
+    );
+}
+
+.user {
+    grid-area: user;
+}
+.contact {
+    grid-area: Contact;
+}
+.header {
+    grid-area: header;
+}
+.message {
+    grid-area: message;
+}
+.chat {
+    grid-area: chat;
+}
