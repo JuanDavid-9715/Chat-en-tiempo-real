@@ -1,0 +1,11 @@
+@use "../abstracts/variables" as c;
+@use "../abstracts/placeholders" as p;
+
+.signin {
+    background-color: c.$french-violet;
+    width: p.$signinWidth;
+    height: p.$signinHeight;
+    position: absolute;
+    left: calc((100% - p.$signinWidth) / 2);
+    top: calc((100% - p.$signinHeight) / 2);
+}

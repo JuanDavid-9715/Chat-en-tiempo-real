@@ -24,12 +24,3 @@
 .chat {
     background-color: c.$eerie-black;
 }
-
-.signin {
-    background-color: c.$black;
-    width: p.$signinWidth;
-    height: p.$signinHeight;
-    position: absolute;
-    left: calc((100% - p.$signinWidth) / 2);
-    top: calc((100% - p.$signinHeight) / 2);
-}

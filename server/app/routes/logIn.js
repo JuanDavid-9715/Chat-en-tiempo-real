@@ -16,7 +16,7 @@ const logIn = async (dataUser) => {
             // realiza la actualización del el usuario a linea
             const updateUser = await updateLineUser(loginUser, true);
 
-            message.user = loginUser;
+            message.user = loginUser.user[0];
             message.response = updateUser;
         } else {
             message.response = {

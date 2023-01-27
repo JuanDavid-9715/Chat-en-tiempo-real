@@ -5,7 +5,11 @@ const signUp = async (dataUser) => {
     const signUpUser = await addUser(dataUser);
     message = {
         token: dataUser.token,
-        response: signUpUser,
+        user: signUpUser.user,
+        response: {
+            status: signUpUser.status,
+            message: signUpUser.message,
+        },
     };
 
     return message;

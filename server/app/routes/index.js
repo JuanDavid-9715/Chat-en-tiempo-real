@@ -5,6 +5,7 @@ const logIn = require("./logIn");
 const savedContacts = require("./savedContacts");
 const savedMessage = require("./savedMessage");
 
+const { searchUserTell } = require("../controller/user");
 const { searchContactAll } = require("../controller/contact");
 const { searchChatId } = require("../controller/chat");
 
@@ -20,22 +21,22 @@ const socketRouter = (server) => {
 
         socket.on("signUp", async (data) => {
             const message = await signUp(data);
-            socket.emit("response", message);
+            socket.emit("user", message);
         });
 
         socket.on("login", async (data) => {
             const message = await logIn(data);
-            socket.emit("response", message);
+            socket.emit("user", message);
         });
 
         socket.on("addContact", async (data) => {
             const message = await savedContacts(data);
-            socket.emit("response", message);
+            socket.emit("contact", message);
         });
 
         socket.on("message", async (data) => {
             const message = await savedMessage(data);
-            socket.emit("response", message);
+            socket.emit("message", message);
         });
 
         socket.on("getContacts", async (tell) => {
@@ -46,6 +47,17 @@ const socketRouter = (server) => {
         socket.on("getChat", async (id) => {
             const chat = await searchChatId(id);
             socket.emit("chatMessage", chat);
+        });
+
+        socket.on("Availability", async (tell) => {
+            const user = await searchUserTell(tell);
+
+            console.log(user);
+            if (!user.user) {
+                socket.emit("enabled", false);
+            } else {
+                socket.emit("enabled", true);
+            }
         });
 
         socket.on("disconnect", () => {
