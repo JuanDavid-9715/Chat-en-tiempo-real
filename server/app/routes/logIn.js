@@ -2,7 +2,6 @@ const { updateLineUser, searchUserTell } = require("../controller/user");
 
 const logIn = async (dataUser) => {
     const message = {
-        token: dataUser.token,
         user: "",
         response: "",
     };

@@ -15,7 +15,7 @@ function dataUser() {
         message: "",
     });
 
-    const ReceiveDate = () => {
+    const receiveDateUser = () => {
         socket.on("user", (data) => {
             setUser(() => {
                 if (data.user != "") {
@@ -40,7 +40,7 @@ function dataUser() {
         });
     };
 
-    return { user, ReceiveDate };
+    return { user, receiveDateUser };
 }
 
 export default dataUser;

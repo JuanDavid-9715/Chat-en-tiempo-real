@@ -9,6 +9,7 @@ function SignUp() {
         tell: "",
         password: "",
     });
+
     const [validations, setValidations] = useState({ tell: "", form: "" });
 
     const handleSubmit = (evt) => {
@@ -30,7 +31,7 @@ function SignUp() {
         }
     };
 
-    const handleBlurTell = async () => {
+    const handleBlurTell = () => {
         socket.emit("Availability", values);
         socket.on("enabled", (enabled) => {
             setValidations({

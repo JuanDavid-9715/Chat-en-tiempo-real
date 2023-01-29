@@ -4,9 +4,9 @@ const signUp = require("./signUp");
 const logIn = require("./logIn");
 const savedContacts = require("./savedContacts");
 const savedMessage = require("./savedMessage");
+const getContacts = require("./getContacts");
 
 const { searchUserTell } = require("../controller/user");
-const { searchContactAll } = require("../controller/contact");
 const { searchChatId } = require("../controller/chat");
 
 const socketRouter = (server) => {
@@ -39,9 +39,9 @@ const socketRouter = (server) => {
             socket.emit("message", message);
         });
 
-        socket.on("getContacts", async (tell) => {
-            const listContact = await searchContactAll(tell);
-            socket.emit("ListContact", listContact);
+        socket.on("getContacts", async (UserContact) => {
+            const message = await getContacts(UserContact);
+            socket.emit("ListContact", message);
         });
 
         socket.on("getChat", async (id) => {

@@ -4,7 +4,6 @@ const signUp = async (dataUser) => {
     // Realizar búsqueda del usuario y sin no existe crea el usuario
     const signUpUser = await addUser(dataUser);
     message = {
-        token: dataUser.token,
         user: signUpUser.user,
         response: {
             status: signUpUser.status,

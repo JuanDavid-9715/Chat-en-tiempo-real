@@ -9,19 +9,18 @@ function LogIn({ validationsLogIn }) {
         password: "",
     });
 
-    useEffect(() => {});
-
     const handleSubmit = async (evt) => {
         evt.preventDefault();
         socket.emit("login", values);
         sessionStorage.setItem("tell", values.tell);
+        clearForm();
     };
 
     return (
-        <div className="signin__login">
-            <h2>LOG IN</h2>
+        <>
+            <h2 className="login__h2">LOG IN</h2>
             <p
-                className="signup__p"
+                className="login__p"
                 aria-live="assertive"
                 style={{
                     visibility: validationsLogIn ? "visible" : "hidden",
@@ -29,10 +28,13 @@ function LogIn({ validationsLogIn }) {
             >
                 the phone number or password is incorrect
             </p>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="tell">phone number</label>
+            <form className="login__form" onSubmit={handleSubmit}>
+                <label className="login__label" htmlFor="login__tell">
+                    phone number
+                </label>
                 <input
-                    id="tell"
+                    id="login__tell"
+                    className="login__input"
                     name="tell"
                     type="tell"
                     placeholder="phone number"
@@ -40,9 +42,12 @@ function LogIn({ validationsLogIn }) {
                     onChange={handleChange}
                     required
                 />
-                <label htmlFor="password">password</label>
+                <label className="login__label" htmlFor="login__password">
+                    password
+                </label>
                 <input
-                    id="password"
+                    id="login__password"
+                    className="login__input"
                     name="password"
                     type="password"
                     placeholder="password"
@@ -52,10 +57,12 @@ function LogIn({ validationsLogIn }) {
                     title="Debe tener al menos una mayúscula, una minúscula y un dígito"
                     required
                 />
-                <button>Sign Up</button>
-                <button type="submit">Log In</button>
+                <button className="login__button">Sign Up</button>
+                <button className="login__button" type="submit">
+                    Log In
+                </button>
             </form>
-        </div>
+        </>
     );
 }
 
