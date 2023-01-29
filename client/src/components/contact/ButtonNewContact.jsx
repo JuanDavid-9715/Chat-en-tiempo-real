@@ -14,7 +14,7 @@ function ButtonNewContact() {
                     setViewFrom(!viewForm);
                 }}
             >
-                <img src="" alt="icono-newContact" />
+                <img src="" alt="icon-newContact" />
             </button>
         </div>
     );

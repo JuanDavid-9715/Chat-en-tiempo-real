@@ -3,11 +3,11 @@ const socket = require("socket.io");
 const signUp = require("./signUp");
 const logIn = require("./logIn");
 const savedContacts = require("./savedContacts");
-const savedMessage = require("./savedMessage");
 const getContacts = require("./getContacts");
 
 const { searchUserTell } = require("../controller/user");
 const { searchChatId } = require("../controller/chat");
+const { updateMessage } = require("../controller/message");
 
 const socketRouter = (server) => {
     const io = socket(server, {
@@ -35,7 +35,7 @@ const socketRouter = (server) => {
         });
 
         socket.on("message", async (data) => {
-            const message = await savedMessage(data);
+            const message = await updateMessage(data);
             socket.emit("message", message);
         });
 

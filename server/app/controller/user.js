@@ -82,7 +82,7 @@ const searchUserTell = async (data) => {
         });
 
         if (saveUser[0] != null) {
-            console.log("User found ---> ", saveUser);
+            /* console.log("User found ---> ", saveUser); */
 
             return {
                 user: saveUser,
