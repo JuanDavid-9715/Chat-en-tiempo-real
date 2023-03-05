@@ -10,7 +10,8 @@
 @forward "./assets/styles/layout/_grid.scss";
 
 // Components
-@forward "./assets/styles/components/_signin";
+@forward "./assets/styles/components/signIn";
+@forward "./assets/styles/components/user";
 
 // Pages
 @forward "./App.scss";

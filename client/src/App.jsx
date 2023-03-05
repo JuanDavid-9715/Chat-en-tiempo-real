@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import SignIn from "./components/signIn/SignIn";
-import User from "./components/user";
+import User from "./components/User";
 import ContainerContact from "./components/contact/ContainerContact";
 import ButtonNewContact from "./components/contact/buttonNewContact";
 import HeaderChat from "./components/chat/HeaderChat";
@@ -12,12 +12,15 @@ import dataUser from "./adapters/user";
 import dataContact from "./adapters/contact";
 import dataChat from "./adapters/chat";
 
+import useButton from "./utilities/useButton";
+
 import socket from "./services/Socket";
 
 function App() {
     const { user, receiveDateUser } = dataUser();
     const { contacts, receiveDateContact } = dataContact();
     const { chat, receiveDateChat } = dataChat();
+    const { button, handleChange } = useButton(false);
 
     const [validationsLogIn, setValidationsLogIn] = useState(false);
     const [show, setShow] = useState(true);
@@ -132,7 +135,7 @@ function App() {
                 )}
             </div>
 
-            {show && SignIn(validationsLogIn)}
+            {show && SignIn(validationsLogIn, handleChange, button)}
         </main>
     );
 }

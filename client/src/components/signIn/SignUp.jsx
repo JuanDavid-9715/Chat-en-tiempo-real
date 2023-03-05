@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+
 import useForm from "../../utilities/useForm";
 
 import socket from "../../services/Socket";
 
-function SignUp() {
+function SignUp({ onClick, button }) {
     const { values, handleChange, clearForm, clearTellPassword } = useForm({
         name: "",
         tell: "",
@@ -43,39 +45,57 @@ function SignUp() {
 
     return (
         <>
-            <h2 className="signup__h2">SIGN UP</h2>
-            <p
-                className="signup__p"
+            <motion.h2
+                className="signin__h2"
+                transition={{ duration: 1 }}
+                animate={button ? { x: -500 } : { x: 0 }}
+            >
+                SIGN UP
+            </motion.h2>
+            <motion.p
+                className="signin__p signin__p--header"
                 aria-live="assertive"
                 style={{
                     visibility: validations.form ? "visible" : "hidden",
                 }}
             >
                 Please use another phone number
-            </p>
-            <form className="signup__form" onSubmit={handleSubmit}>
-                <label className="signup__label" htmlFor="signup__name">
+            </motion.p>
+            <form className="signin__form" onSubmit={handleSubmit}>
+                <motion.label
+                    className="signin__label"
+                    htmlFor="signUp__name"
+                    transition={{ duration: 1.8 }}
+                    animate={button ? { x: -500 } : { x: 0 }}
+                >
                     name
-                </label>
-                <input
-                    id="signup__name"
-                    className="signup__input"
+                </motion.label>
+                <motion.input
+                    id="signUp__name"
+                    className="signin__input"
                     name="name"
                     type="name"
-                    placeholder="name"
+                    transition={{ duration: 1.8 }}
+                    animate={button ? { x: -500 } : { x: 0 }}
                     value={values.name}
                     onChange={handleChange}
                     required
                 />
-                <label className="signup__label" htmlFor="signup__tell">
+                <motion.label
+                    className="signin__label"
+                    htmlFor="signUp__tell"
+                    transition={{ duration: 1.6 }}
+                    animate={button ? { x: -500 } : { x: 0 }}
+                >
                     phone number
-                </label>
-                <input
-                    id="signup__tell"
-                    className="signup__input"
+                </motion.label>
+                <motion.input
+                    id="signUp__tell"
+                    className="signin__input"
                     name="tell"
                     type="tell"
-                    placeholder="phone number"
+                    transition={{ duration: 1.6 }}
+                    animate={button ? { x: -500 } : { x: 0 }}
                     value={values.tell}
                     onChange={handleChange}
                     onBlur={handleBlurTell}
@@ -84,7 +104,7 @@ function SignUp() {
                     required
                 />
                 <p
-                    className="signup__p"
+                    className="signin__p"
                     aria-live="assertive"
                     style={{
                         visibility: validations.tell ? "visible" : "hidden",
@@ -92,26 +112,44 @@ function SignUp() {
                 >
                     this tell is already registered
                 </p>
-                <label className="signup__label" htmlFor="signup__password">
+                <motion.label
+                    className="signin__label"
+                    htmlFor="signUp__password"
+                    transition={{ duration: 1.4 }}
+                    animate={button ? { x: -500 } : { x: 0 }}
+                >
                     password
-                </label>
-                <input
-                    id="signup__password"
-                    className="signup__input"
+                </motion.label>
+                <motion.input
+                    id="signUp__password"
+                    className="signin__input"
                     name="password"
                     type="password"
-                    placeholder="password"
+                    transition={{ duration: 1.4 }}
+                    animate={button ? { x: -500 } : { x: 0 }}
                     value={values.password}
                     onChange={handleChange}
                     pattern="(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ].*"
                     title="Debe tener al menos una mayúscula, una minúscula y un dígito"
                     required
                 />
-                <button className="signup__button">Log In</button>
-                <button className="signup__button" type="submit">
+                <button
+                    className="signin__button signin__button--right"
+                    type="submit"
+                    transition={{ duration: 2 }}
+                    animate={button ? { x: -500 } : { x: 0 }}
+                >
                     Sign Up
                 </button>
             </form>
+            <button
+                className="signin__button signin__button--left"
+                transition={{ duration: 3 }}
+                animate={button ? { x: -500 } : { x: 0 }}
+                onClick={onClick}
+            >
+                Log In
+            </button>
         </>
     );
 }

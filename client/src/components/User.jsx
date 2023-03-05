@@ -1,15 +1,15 @@
 function User() {
     return (
         <>
-            <div>
+            <div className="user__img">
                 <img
-                    src="client\src\assets\icon\perfilDelUsuario.png"
+                    src="../../public/img/perfilDelUsuario.png"
                     alt="icon-user"
                 />
             </div>
-            <div>
-                <div></div>
-                <p>Line</p>
+            <div className="user__content">
+                <div className="user__let"></div>
+                <p className="user__p">Line</p>
             </div>
         </>
     );

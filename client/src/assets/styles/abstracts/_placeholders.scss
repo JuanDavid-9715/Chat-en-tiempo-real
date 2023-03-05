@@ -1,3 +1,6 @@
 // signin
-$signinWidth: max(30rem, min(45%, 40rem)) /* min() max(30rem, 50%) */;
+$signinWidth: max(30rem, min(45%, 40rem));
 $signinHeight: 70%;
+
+$buttonSigninWidth: 9rem;
+$alignButtonSignin: calc(($signinWidth * 0.9 * 0.5 - $buttonSigninWidth) / 2);

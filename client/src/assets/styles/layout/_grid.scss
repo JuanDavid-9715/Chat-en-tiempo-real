@@ -15,6 +15,18 @@
 
 .user {
     grid-area: user;
+
+    display: grid;
+    @include m.grid(
+        1fr 2fr,
+        1fr,
+        "img name",
+        0rem,
+        center,
+        center,
+        start,
+        center
+    );
 }
 .contact {
     grid-area: Contact;
@@ -27,4 +39,54 @@
 }
 .chat {
     grid-area: chat;
+}
+
+.signin {
+    @include m.flex(row, nowrap, center, center);
+}
+
+.signin__signup,
+.signin__login {
+    @include m.grid(
+        1fr 1fr,
+        1fr 2fr 0.7fr,
+        "header header" "form form" "buttonLogIn buttonSignUp",
+        0,
+        center,
+        center,
+        stretch,
+        center
+    );
+}
+
+.signin__h2 {
+    grid-area: header;
+}
+
+.signin__p {
+    grid-area: header;
+}
+
+.signin__form {
+    @include m.flex(column, nowrap, stretch, center);
+    grid-area: form;
+}
+
+.signin__button--left {
+    grid-area: buttonLogIn;
+}
+
+.signin__button--right {
+    grid-area: buttonSignUp;
+}
+
+.user__img {
+    grid-area: img;
+}
+.user__content {
+    grid-area: name;
+    justify-self: end;
+
+    @include m.flex(row, nowrap, stretch, stretch);
+    gap: 0.5rem;
 }
