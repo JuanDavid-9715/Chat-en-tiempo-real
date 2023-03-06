@@ -1,0 +1,47 @@
+@use "../../abstracts/variables" as c;
+
+.contact {
+    position: relative;
+}
+
+.from__button {
+    background-color: aqua;
+    width: 12rem;
+    height: 3rem;
+    margin: auto;
+    border-radius: 1.5rem;
+    position: absolute;
+    bottom: 2rem;
+}
+
+.from__container {
+    background-color: rgba($color: #222, $alpha: 0.9);
+    width: 80%;
+    position: absolute;
+    top: 2rem;
+}
+.from__h2 {
+    text-align: center;
+    font-size: 2em;
+}
+.from__label {
+}
+.from__input {
+    width: 90%;
+    padding: 0.6rem;
+    margin: auto;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid c.$davys-grey;
+}
+.from__p {
+    color: red;
+    font-size: 0.8em;
+    margin: 1rem;
+}
+.from__submit {
+    background-color: violet;
+    width: 70%;
+    height: 2rem;
+    margin: auto;
+    border-radius: 1rem;
+}

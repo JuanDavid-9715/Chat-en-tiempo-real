@@ -12,6 +12,11 @@
 // Components
 @forward "./assets/styles/components/signIn";
 @forward "./assets/styles/components/user";
+@forward "./assets/styles/components/contact/contact";
+@forward "./assets/styles/components/contact/form";
+
+// Utilities
+@forward "./assets/styles/utilities/let";
 
 // Pages
 @forward "./App.scss";

@@ -83,10 +83,29 @@
 .user__img {
     grid-area: img;
 }
-.user__content {
+.let__content {
     grid-area: name;
     justify-self: end;
 
     @include m.flex(row, nowrap, stretch, stretch);
     gap: 0.5rem;
+}
+
+.contact__container {
+    @include m.flex(column, nowrap, stretch, stretch);
+}
+.contact__button {
+    @include m.flex(row, nowrap, stretch, stretch);
+    gap: 1rem;
+}
+
+.from__button {
+    justify-self: center;
+    align-self: center;
+}
+
+.from__container {
+    justify-self: center;
+    align-self: center;
+    @include m.flex(column, nowrap, center, stretch);
 }

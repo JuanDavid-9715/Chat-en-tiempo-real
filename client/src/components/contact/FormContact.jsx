@@ -50,8 +50,8 @@ function FormContact() {
     };
 
     return (
-        <div>
-            <h2>Contact</h2>
+        <div className="from__container">
+            <h2 className="from__h2">Contact</h2>
             <p
                 className="signup__p"
                 aria-live="assertive"
@@ -62,13 +62,10 @@ function FormContact() {
                 please add an existing contact
             </p>
             <form onSubmit={handleSubmit}>
-                <label
-                    className="contact__name"
-                    htmlFor="contact__name"
-                ></label>
+                <label className="from__label" htmlFor="contact__name"></label>
                 <input
                     id="contact__name"
-                    className="contact__name"
+                    className="from__input"
                     name="name"
                     type="text"
                     placeholder="Contact name"
@@ -76,13 +73,10 @@ function FormContact() {
                     onChange={handleChange}
                     required
                 />
-                <label
-                    className="contact__tell"
-                    htmlFor="contact__tell"
-                ></label>
+                <label className="from__label" htmlFor="contact__tell"></label>
                 <input
                     id="contact__tell"
-                    className="contact__tell"
+                    className="from__input"
                     name="tell"
                     type="text"
                     placeholder="Contact phone"
@@ -92,7 +86,7 @@ function FormContact() {
                     required
                 />
                 <p
-                    className="signup__p"
+                    className="from__p"
                     aria-live="assertive"
                     style={{
                         visibility: !validations.tell ? "visible" : "hidden",
@@ -100,7 +94,7 @@ function FormContact() {
                 >
                     Contact does not exist
                 </p>
-                <button className="contact__button" type="submit">
+                <button className="from__submit" type="submit">
                     Add contact
                 </button>
             </form>

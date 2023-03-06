@@ -7,9 +7,9 @@ function User() {
                     alt="icon-user"
                 />
             </div>
-            <div className="user__content">
-                <div className="user__let"></div>
-                <p className="user__p">Line</p>
+            <div className="let__content">
+                <div className="let__let"></div>
+                <p className="let__p">Line</p>
             </div>
         </>
     );
