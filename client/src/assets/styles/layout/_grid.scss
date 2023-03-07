@@ -1,6 +1,7 @@
 @use "../abstracts/mixins" as m;
 
 .main {
+    overflow: hidden;
     @include m.grid(
         minmax(14rem, 30%) 1fr,
         4rem 1fr 4rem,
@@ -16,7 +17,6 @@
 .user {
     grid-area: user;
 
-    display: grid;
     @include m.grid(
         1fr 2fr,
         1fr,
@@ -33,9 +33,20 @@
 }
 .header {
     grid-area: header;
+    @include m.grid(
+        1fr 10fr,
+        1fr,
+        "img status",
+        1rem,
+        center,
+        center,
+        start,
+        center
+    );
 }
 .message {
     grid-area: message;
+    @include m.flex(row, nowrap, start, center);
 }
 .chat {
     grid-area: chat;
@@ -84,7 +95,6 @@
     grid-area: img;
 }
 .let__content {
-    grid-area: name;
     justify-self: end;
 
     @include m.flex(row, nowrap, stretch, stretch);
@@ -108,4 +118,14 @@
     justify-self: center;
     align-self: center;
     @include m.flex(column, nowrap, center, stretch);
+}
+
+.chat__contact--name {
+    @include m.flex(row, nowrap, center, center);
+    gap: 1rem;
+}
+
+.form__message {
+    @include m.flex(row, nowrap, start, center);
+    gap: 1rem;
 }

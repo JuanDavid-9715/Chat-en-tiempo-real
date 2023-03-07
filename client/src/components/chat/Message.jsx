@@ -24,7 +24,7 @@ function Message({ contact }) {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="form__message">
                 <input
                     className="message__input"
                     name="message"
@@ -34,8 +34,8 @@ function Message({ contact }) {
                     onChange={handleChange}
                     required
                 />
-                <button className="" type="submit">
-                    <img src="" alt="icon-submit" />
+                <button className="message__submit" type="submit">
+                    <img src="/img/send.png" alt="icon-submit" />
                 </button>
             </form>
         </>

@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 
 import SignIn from "./components/signIn/SignIn";
-import User from "./components/User";
+import User from "./components/user";
 import ContainerContact from "./components/contact/ContainerContact";
-import ButtonNewContact from "./components/contact/buttonNewContact";
 import HeaderChat from "./components/chat/HeaderChat";
 import Chat from "./components/chat/Chat";
 import Message from "./components/chat/message";
@@ -95,7 +94,7 @@ function App() {
                 ) : (
                     ""
                 )}
-                {loadPage ? (
+                {/* {loadPage ? (
                     contacts?.contacts.length != 0 ? (
                         <ButtonNewContact />
                     ) : (
@@ -103,7 +102,7 @@ function App() {
                     )
                 ) : (
                     ""
-                )}
+                )} */}
             </div>
             <div className="header">
                 {loadPage ? (

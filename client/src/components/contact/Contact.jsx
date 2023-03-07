@@ -7,10 +7,7 @@ function Contact({ contact, onClick }) {
             }}
         >
             <div className="contact__img">
-                <img
-                    src="../../../public/img/perfilDelUsuario.png"
-                    alt="icon-contact"
-                />
+                <img src="/img/perfilDelUsuario.png" alt="icon-contact" />
             </div>
             <div className="contact__name">
                 <p className="contact__p">{contact.name}</p>
