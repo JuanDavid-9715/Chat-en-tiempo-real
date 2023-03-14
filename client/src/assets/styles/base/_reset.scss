@@ -22,12 +22,12 @@
 }
 
 /* (Opcional) Desactivamos los animations en el caso de que el usuario haya configurado el modo sin animation */
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
     * {
-        animation: none !important;
-        transition: none !important;
+        animation: none;
+        transition: none;
     }
-}
+} */
 
 /* Reseteamos los margin y paddings de todas las etiquetas */
 *,

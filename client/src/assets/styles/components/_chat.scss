@@ -1,0 +1,65 @@
+.chat__img {
+    width: 3rem;
+    height: 3rem;
+}
+.chat__header {
+}
+.chat__h3 {
+    font-size: 1.5em;
+}
+
+// ---------------------------
+
+.chat__container {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+.chat__mensaje--standard {
+    width: 20rem;
+    height: 5rem;
+    margin: auto;
+    border-radius: 2rem;
+    border: 2px solid orangered;
+    box-shadow: 0 0 0.9rem 0.2rem rgb(253, 127, 82);
+}
+.chat__p {
+    color: orangered;
+}
+.chat__message {
+    min-width: 40%;
+    max-width: 80%;
+    width: fit-content;
+    height: auto;
+    margin: 0 1rem;
+    padding: 0.4rem;
+}
+.chat__message--user {
+    background-color: blueviolet;
+    border-radius: 0.9rem 0.9rem 0 0.9rem;
+}
+.chat__message--contact {
+    background-color: blue;
+    border-radius: 0.9rem 0.9rem 0.9rem 0;
+}
+.message__date {
+    color: grey;
+    font-size: 0.7em;
+}
+.message__message {
+    max-width: 88%;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+// ---------------------------
+.form__message {
+    width: 100%;
+}
+.message__input {
+    width: 100%;
+}
+.message__submit {
+    width: 2rem;
+    height: 2rem;
+}

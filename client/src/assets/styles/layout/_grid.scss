@@ -50,9 +50,13 @@
 }
 .chat {
     grid-area: chat;
+    @include m.flex(row, nowrap, center, end);
 }
 
 .signin {
+    @include m.flex(row, nowrap, center, center);
+}
+.signin__background {
     @include m.flex(row, nowrap, center, center);
 }
 
@@ -128,4 +132,30 @@
 .form__message {
     @include m.flex(row, nowrap, start, center);
     gap: 1rem;
+}
+
+.chat__mensaje--standard {
+    grid-area: center;
+    @include m.flex(row, nowrap, center, center);
+}
+.chat__container {
+    grid-area: center;
+    @include m.flex(column, nowrap, auto, center);
+    gap: 0.5rem;
+}
+.chat__message {
+    @include m.flex(row, nowrap, space-between, flex-end);
+    gap: 0.2rem;
+}
+.chat__message--user {
+    align-self: end;
+}
+.chat__message--contact {
+    align-self: start;
+}
+.message__date {
+    flex-basis: 7rem;
+}
+.message__message {
+    flex-basis: auto;
 }
