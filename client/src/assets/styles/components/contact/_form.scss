@@ -3,19 +3,8 @@
 .contact {
     position: relative;
 }
-
-.from__button {
-    background-color: aqua;
-    width: 12rem;
-    height: 3rem;
-    margin: auto;
-    border-radius: 1.5rem;
-    position: absolute;
-    bottom: 2rem;
-}
-
 .from__container {
-    background-color: rgba($color: #222, $alpha: 0.9);
+    background-color: rgba($color: c.$black, $alpha: 0.9);
     width: 80%;
     position: absolute;
     top: 2rem;
@@ -24,8 +13,7 @@
     text-align: center;
     font-size: 2em;
 }
-.from__label {
-}
+
 .from__input {
     width: 90%;
     padding: 0.6rem;
@@ -39,9 +27,10 @@
     margin: 1rem;
 }
 .from__submit {
-    background-color: violet;
+    background-color: c.$french-violet;
     width: 70%;
     height: 2rem;
     margin: auto;
     border-radius: 1rem;
+    box-shadow: 0 0 20px c.$french-violet;
 }

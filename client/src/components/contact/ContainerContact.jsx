@@ -22,7 +22,7 @@ function ContainerContact({ contacts, onClick }) {
 
             {contacts?.contacts.length != 0 ? (
                 <button
-                    className="from__button"
+                    className="from__button signin__button"
                     onClick={() => {
                         setViewFrom(!viewForm);
                     }}

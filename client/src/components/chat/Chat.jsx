@@ -34,16 +34,16 @@ function Chat({ contact, dataChat }) {
 
         if (message.tell == sessionStorage.getItem("tell")) {
             return (
-                <div key={i} className="chat__message--user">
-                    <p>{dateAdjust}</p>
-                    <p>{message.message}</p>
+                <div key={i} className="chat__message chat__message--user">
+                    <p className="message__date">{dateAdjust}</p>
+                    <p className="message__message">{message.message}</p>
                 </div>
             );
         } else {
             return (
-                <div key={i} className="chat__message--contact">
-                    <p>{message.message}</p>
-                    <p>{dateAdjust}</p>
+                <div key={i} className="chat__message chat__message--contact">
+                    <p className="message__message">{message.message}</p>
+                    <p className="message__date">{dateAdjust}</p>
                 </div>
             );
         }
@@ -52,10 +52,10 @@ function Chat({ contact, dataChat }) {
     return (
         <>
             {contact ? (
-                <div>{listMessage}</div>
+                <div className="chat__container">{listMessage}</div>
             ) : (
-                <div>
-                    <p>Start a new chat</p>
+                <div className="chat__mensaje--standard">
+                    <p className="chat__p">Start a new chat</p>
                 </div>
             )}
         </>

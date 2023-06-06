@@ -13,68 +13,95 @@
     left: calc((100% - p.$signinWidth) / 2);
     top: calc((100% - p.$signinHeight) / 2);
 }
-
 .signin__signup {
-    /* background-color: aqua; */
     width: 90%;
     height: 90%;
     position: absolute;
 }
-
 .signin__login {
-    /* background-color: aqua; */
     width: 90%;
     height: 90%;
     position: absolute;
 }
-
 .signin__h2 {
-    /* background-color: blue; */
     text-align: center;
     font-size: 4em;
 }
 .signin__p {
-    /* background-color: aqua; */
     color: lightcoral;
     margin: 0 0 0 7%;
     align-self: flex-start;
     text-shadow: 0 0 4px red;
 }
-
 .signin__p--header {
     align-self: flex-end;
     margin-bottom: 5%;
 }
-
-.signin__form {
-    /* background-color: blue; */
-}
-
 .signin__label {
-    /* background-color: red; */
     align-self: flex-start;
     margin: 0 0 0.2rem 7%;
 }
 .signin__input {
-    /* background-color: chartreuse; */
     width: 90%;
     padding: 0.6rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid c.$davys-grey;
 }
 .signin__button {
-    background-color: darkmagenta;
+    color: c.$french-violet;
     width: p.$buttonSigninWidth;
-    font-size: 1.2em;
+    font-size: 1.3em;
     padding: 1.2rem;
     position: absolute;
     bottom: 3rem;
-}
+    overflow: hidden;
 
+    text-transform: uppercase;
+    letter-spacing: 0.08rem;
+}
+.signin__button:hover {
+    background-color: c.$french-violet;
+    color: c.$black;
+    box-shadow: 0 0 50px c.$french-violet;
+    transition-delay: 0.5s;
+}
+.signin__button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-top: 2px solid c.$french-violet;
+    border-left: 2px solid c.$french-violet;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.signin__button:hover::before {
+    width: 100%;
+    height: 100%;
+    transition-delay: 0s;
+}
+.signin__button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-bottom: 2px solid c.$french-violet;
+    border-right: 2px solid c.$french-violet;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+.signin__button:hover::after {
+    width: 100%;
+    height: 100%;
+    transition-delay: 0s;
+}
 .signin__button--left {
     left: p.$alignButtonSignin;
 }
-
 .signin__button--right {
     right: p.$alignButtonSignin;
 }
