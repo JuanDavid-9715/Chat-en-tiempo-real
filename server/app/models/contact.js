@@ -9,7 +9,7 @@ const ContactSchema = new mongoose.Schema(
         tell: {
             type: String,
             require: true,
-            unique: true,
+            unique: false,
         },
         savedContact: {
             type: Boolean,

@@ -70,14 +70,6 @@ function App() {
         }
     }, [user]);
 
-    /* useEffect(() => {
-        console.log(messageChat);
-    }, [messageChat]); */
-
-    /* useEffect(() => {
-        console.log(contacts);
-    }, [contacts]); */
-
     const contactSelector = (data) => {
         setSelectContact(data);
     };
@@ -94,15 +86,6 @@ function App() {
                 ) : (
                     ""
                 )}
-                {/* {loadPage ? (
-                    contacts?.contacts.length != 0 ? (
-                        <ButtonNewContact />
-                    ) : (
-                        ""
-                    )
-                ) : (
-                    ""
-                )} */}
             </div>
             <div className="header">
                 {loadPage ? (
