@@ -10,10 +10,11 @@
 @forward "./assets/styles/layout/_grid.scss";
 
 // Components
-@forward "./assets/styles/components/user";
-@forward "./assets/styles/components/contact/contact";
-@forward "./assets/styles/components/contact/form";
-@forward "./assets/styles/components/chat";
+@forward "./assets/styles/components/_signin";
+@forward "./assets/styles/components/_user";
+@forward "./assets/styles/components/contact/_contact";
+@forward "./assets/styles/components/contact/_form";
+@forward "./assets/styles/components/_chat";
 
 // Utilities
 @forward "./assets/styles/utilities/let";

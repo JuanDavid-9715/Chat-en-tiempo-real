@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
 import SignIn from "./components/signIn/SignIn";
-import User from "./components/user";
+import User from "./components/User";
 import ContainerContact from "./components/contact/ContainerContact";
 import HeaderChat from "./components/chat/HeaderChat";
 import Chat from "./components/chat/Chat";
-import Message from "./components/chat/message";
+import Message from "./components/chat/Message";
 
 import dataUser from "./adapters/user";
 import dataContact from "./adapters/contact";
