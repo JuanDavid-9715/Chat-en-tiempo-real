@@ -2,7 +2,7 @@
 
 <img src="ChatTiempoReal.png" alt="imagen de chat de tiempo real">
 
-<a href="https://jdmcpokedex.surge.sh" target="_blank">
+<a href="https://chattiemporealjdmc.surge.sh" target="_blank">
     <img src="client\public\img\perfilDelUsuario.png" alt="img.pagina" style="width:40px;height:40px;">
     <p>Chat de tiempo real</p>
 </a>
